@@ -1,0 +1,423 @@
+[gd_scene load_steps=43 format=2]
+
+[ext_resource path="res://script/beginPlat.gd" type="Script" id=1]
+[ext_resource path="res://script/levelHTTPRequest.gd" type="Script" id=2]
+[ext_resource path="res://script/showPowerups.gd" type="Script" id=3]
+[ext_resource path="res://font.ttf" type="DynamicFontData" id=4]
+[ext_resource path="res://script/highscore.gd" type="Script" id=5]
+[ext_resource path="res://script/score.gd" type="Script" id=6]
+[ext_resource path="res://script/restart.gd" type="Script" id=7]
+[ext_resource path="res://script/menuScore.gd" type="Script" id=8]
+[ext_resource path="res://script/menuHighscore.gd" type="Script" id=9]
+[ext_resource path="res://sprites/retry.png" type="Texture" id=10]
+[ext_resource path="res://sprites/retry_inv.png" type="Texture" id=11]
+[ext_resource path="res://sprites/menu.png" type="Texture" id=12]
+[ext_resource path="res://sprites/menu_inv.png" type="Texture" id=13]
+[ext_resource path="res://sprites/pauseT.png" type="Texture" id=14]
+[ext_resource path="res://script/pause.gd" type="Script" id=15]
+[ext_resource path="res://sprites/playT.png" type="Texture" id=16]
+[ext_resource path="res://script/play.gd" type="Script" id=17]
+[ext_resource path="res://sprites/double_jump.png" type="Texture" id=18]
+[ext_resource path="res://script/powerupActivated.gd" type="Script" id=19]
+[ext_resource path="res://sprites/inverse_direction.png" type="Texture" id=20]
+[ext_resource path="res://sprites/jump_increase.png" type="Texture" id=21]
+[ext_resource path="res://sprites/speed_increase.png" type="Texture" id=22]
+[ext_resource path="res://script/KinematicBody2D.gd" type="Script" id=23]
+[ext_resource path="res://sprites/backgroundColor.png" type="Texture" id=24]
+[ext_resource path="res://character/side_character.png" type="Texture" id=25]
+[ext_resource path="res://character/duck-jump_character.png" type="Texture" id=26]
+[ext_resource path="res://character/jump2_character.png" type="Texture" id=27]
+[ext_resource path="res://character/jump1_character.png" type="Texture" id=28]
+[ext_resource path="res://Tileset.tres" type="TileSet" id=29]
+[ext_resource path="res://script/BackAndroid.gd" type="Script" id=30]
+[ext_resource path="res://script/effects.gd" type="Script" id=31]
+[ext_resource path="res://script/jump.gd" type="Script" id=32]
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 24
+font_data = ExtResource( 4 )
+
+[sub_resource type="CircleShape2D" id=3]
+custom_solver_bias = 0.002
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=4]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=5]
+radius = 5.0
+
+[sub_resource type="CircleShape2D" id=6]
+radius = 5.0
+
+[sub_resource type="RectangleShape2D" id=7]
+extents = Vector2( 512, 300 )
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 10, 15.6785 )
+
+[sub_resource type="SpriteFrames" id=9]
+animations = [ {
+"frames": [ ExtResource( 25 ), ExtResource( 26 ), ExtResource( 27 ), ExtResource( 28 ) ],
+"loop": false,
+"name": "jumpAnim",
+"speed": 7.0
+}, {
+"frames": [ ExtResource( 26 ), ExtResource( 25 ) ],
+"loop": false,
+"name": "landingAnim",
+"speed": 5.0
+} ]
+
+[sub_resource type="DynamicFont" id=10]
+size = 48
+font_data = ExtResource( 4 )
+
+[node name="Node" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Request" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." groups=[
+"showPowerup",
+]]
+pause_mode = 2
+script = ExtResource( 3 )
+
+[node name="highscore" type="Label" parent="CanvasLayer"]
+margin_left = 717.0
+margin_top = 60.0
+margin_right = 1005.0
+margin_bottom = 110.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+text = "highscore: 0"
+align = 2
+valign = 1
+uppercase = true
+script = ExtResource( 5 )
+
+[node name="score" type="Label" parent="CanvasLayer" groups=[
+"showPowerup",
+"score",
+]]
+margin_left = 833.0
+margin_top = 16.0
+margin_right = 1005.0
+margin_bottom = 66.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+text = "score:"
+align = 2
+valign = 1
+uppercase = true
+script = ExtResource( 6 )
+
+[node name="mode" type="Label" parent="CanvasLayer"]
+margin_left = 795.0
+margin_top = 540.0
+margin_right = 1005.0
+margin_bottom = 590.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+text = "Mode: "
+align = 2
+valign = 1
+uppercase = true
+
+[node name="level" type="Label" parent="CanvasLayer"]
+margin_left = 450.0
+margin_top = 540.0
+margin_right = 660.0
+margin_bottom = 590.0
+grow_horizontal = 0
+grow_vertical = 0
+size_flags_stretch_ratio = 0.0
+custom_fonts/font = SubResource( 1 )
+text = "Level: "
+valign = 1
+uppercase = true
+
+[node name="menu" type="ColorRect" parent="CanvasLayer"]
+editor/display_folded = true
+visible = false
+margin_left = 110.0
+margin_top = 50.0
+margin_right = 910.0
+margin_bottom = 550.0
+color = Color( 0, 0.0980392, 0.745098, 1 )
+script = ExtResource( 7 )
+
+[node name="menu_score" type="Label" parent="CanvasLayer/menu"]
+margin_left = 125.0
+margin_top = 80.0
+margin_right = 675.0
+margin_bottom = 120.0
+rect_min_size = Vector2( 550, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "Score:"
+align = 1
+valign = 2
+clip_text = true
+uppercase = true
+script = ExtResource( 8 )
+
+[node name="menu_highscore" type="Label" parent="CanvasLayer/menu"]
+margin_left = 90.0
+margin_top = 120.0
+margin_right = 710.0
+margin_bottom = 160.0
+rect_min_size = Vector2( 550, 40 )
+custom_fonts/font = SubResource( 2 )
+text = "Highscore:"
+align = 1
+valign = 2
+clip_text = true
+uppercase = true
+script = ExtResource( 9 )
+
+[node name="menu" type="VBoxContainer" parent="CanvasLayer/menu"]
+margin_left = 200.0
+margin_top = 140.0
+margin_right = 240.0
+margin_bottom = 170.0
+rect_scale = Vector2( 10, 10 )
+alignment = 1
+
+[node name="retry" type="TextureButton" parent="CanvasLayer/menu/menu"]
+margin_left = 6.0
+margin_top = 4.0
+margin_right = 34.0
+margin_bottom = 13.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 10 )
+texture_pressed = ExtResource( 11 )
+
+[node name="menu" type="TextureButton" parent="CanvasLayer/menu/menu"]
+margin_left = 8.0
+margin_top = 17.0
+margin_right = 32.0
+margin_bottom = 26.0
+size_flags_horizontal = 4
+texture_normal = ExtResource( 12 )
+texture_pressed = ExtResource( 13 )
+
+[node name="pause" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 10, 10 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 14 )
+script = ExtResource( 15 )
+
+[node name="play" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
+position = Vector2( 10, 10 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 16 )
+script = ExtResource( 17 )
+
+[node name="double_jump" type="TouchScreenButton" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+position = Vector2( 10, 200 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 18 )
+shape = SubResource( 3 )
+script = ExtResource( 19 )
+
+[node name="inverse_direction" type="TouchScreenButton" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+position = Vector2( 10, 300 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 20 )
+shape = SubResource( 4 )
+script = ExtResource( 19 )
+powerup = 1
+
+[node name="jump_increase" type="TouchScreenButton" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+position = Vector2( 10, 400 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 21 )
+shape = SubResource( 5 )
+script = ExtResource( 19 )
+powerup = 2
+
+[node name="speed_increase" type="TouchScreenButton" parent="CanvasLayer"]
+pause_mode = 1
+visible = false
+position = Vector2( 10, 500 )
+scale = Vector2( 10, 10 )
+z_index = 1
+normal = ExtResource( 22 )
+shape = SubResource( 6 )
+script = ExtResource( 19 )
+powerup = 3
+
+[node name="jumpButton" type="TouchScreenButton" parent="CanvasLayer"]
+position = Vector2( 512, 300 )
+z_index = -1
+shape = SubResource( 7 )
+
+[node name="Player" type="KinematicBody2D" parent="."]
+editor/display_folded = true
+position = Vector2( 252, -258 )
+z_index = 1
+script = ExtResource( 23 )
+acceleration = 200
+speedMax = 400
+jump = 450
+maxJump = 1000
+addJump = 14
+gravity = 1500
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2( 3.35588, 0.450807 )
+scale = Vector2( 3.75027, 7.55663 )
+shape = SubResource( 8 )
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+current = true
+zoom = Vector2( 1.5, 1.5 )
+drag_margin_h_enabled = false
+drag_margin_v_enabled = false
+
+[node name="Sprite" type="Sprite" parent="Player/Camera2D"]
+z_index = -1
+texture = ExtResource( 24 )
+region_enabled = true
+region_rect = Rect2( 0, 0, 2000, 1500 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="Player"]
+scale = Vector2( 10, 10 )
+frames = SubResource( 9 )
+animation = "jumpAnim"
+
+[node name="TileMap" type="TileMap" parent="."]
+position = Vector2( -261, 0 )
+scale = Vector2( 10, 10 )
+tile_set = ExtResource( 29 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -458751, 12, 0, -393216, 12, 0, -393215, 12, 0, -393214, 12, 0, -262145, 12, 0, -327680, 12, 0, -327679, 12, 0, -327678, 12, 0, -327677, 12, 0, -327673, 14, 0, -196609, 12, 0, -262144, 12, 0, -262143, 13, 0, -262142, 12, 0, -262141, 12, 0, -262137, 15, 0, -196607, 13, 0, -196601, 15, 0, -131071, 13, 0, -131067, 11, 0, -131065, 15, 0, -6, 4, 0, -5, 4, 0, -4, 4, 0, -3, 4, 0, -2, 4, 0, -1, 4, 0, -65536, 4, 0, -65535, 4, 0, -65534, 4, 0, -65533, 4, 0, -65532, 4, 0, -65531, 4, 0, -65530, 4, 0, -65529, 4, 0, -65528, 4, 0, -65527, 4, 0, -65526, 4, 0, -65525, 4, 0, -65524, 4, 0, -65523, 4, 0, -65522, 4, 0, -65521, 4, 0, -65520, 4, 0, -65519, 4, 0, -65518, 4, 0, -65517, 1, 0, 65530, 5, 0, 65531, 5, 0, 65532, 5, 0, 65533, 5, 0, 65534, 5, 0, 65535, 5, 0, 0, 5, 0, 1, 5, 0, 2, 5, 0, 3, 5, 0, 4, 5, 0, 5, 5, 0, 6, 5, 0, 7, 5, 0, 8, 5, 0, 9, 5, 0, 10, 5, 0, 11, 5, 0, 12, 5, 0, 13, 5, 0, 14, 5, 0, 15, 5, 0, 16, 5, 0, 17, 5, 0, 18, 5, 0, 19, 5, 0, 131066, 6, 0, 131067, 6, 0, 131068, 6, 0, 131069, 6, 0, 131070, 6, 0, 131071, 6, 0, 65536, 6, 0, 65537, 6, 0, 65538, 6, 0, 65539, 6, 0, 65540, 6, 0, 65541, 6, 0, 65542, 6, 0, 65543, 6, 0, 65544, 6, 0, 65545, 6, 0, 65546, 6, 0, 65547, 6, 0, 65548, 6, 0, 65549, 6, 0, 65550, 6, 0, 65551, 6, 0, 65552, 6, 0, 65553, 6, 0, 65554, 6, 0, 65555, 6, 0, 196602, 6, 0, 196603, 6, 0, 196604, 6, 0, 196605, 6, 0, 196606, 6, 0, 196607, 6, 0, 131072, 6, 0, 131073, 6, 0, 131074, 6, 0, 131075, 6, 0, 131076, 6, 0, 131077, 6, 0, 131078, 6, 0, 131079, 6, 0, 131080, 6, 0, 131081, 6, 0, 131082, 6, 0, 131083, 6, 0, 131084, 6, 0, 131085, 6, 0, 131086, 6, 0, 131087, 6, 0, 131088, 6, 0, 131089, 6, 0, 131090, 6, 0, 131091, 6, 0, 262138, 6, 0, 262139, 6, 0, 262140, 6, 0, 262141, 6, 0, 262142, 6, 0, 262143, 6, 0, 196608, 6, 0, 196609, 6, 0, 196610, 6, 0, 196611, 6, 0, 196612, 6, 0, 196613, 6, 0, 196614, 6, 0, 196615, 6, 0, 196616, 6, 0, 196617, 6, 0, 196618, 6, 0, 196619, 6, 0, 196620, 6, 0, 196621, 6, 0, 196622, 6, 0, 196623, 6, 0, 196624, 6, 0, 196625, 6, 0, 196626, 6, 0, 196627, 6, 0, 262156, 6, 0, 262157, 6, 0, 262158, 6, 0, 262159, 6, 0, 262160, 6, 0, 262161, 6, 0, 262162, 6, 0, 262163, 6, 0, 327692, 6, 0, 327693, 6, 0, 327694, 6, 0, 327695, 6, 0, 327696, 6, 0, 327697, 6, 0, 327698, 6, 0, 327699, 6, 0, 393228, 6, 0, 393229, 6, 0, 393230, 6, 0, 393231, 6, 0, 393232, 6, 0, 393233, 6, 0, 393234, 6, 0, 393235, 6, 0, 458764, 6, 0, 458765, 6, 0, 458766, 6, 0, 458767, 6, 0, 458768, 6, 0, 458769, 6, 0, 458770, 6, 0, 458771, 6, 0, 524300, 6, 0, 524301, 6, 0, 524302, 6, 0, 524303, 6, 0, 524304, 6, 0, 524305, 6, 0, 524306, 6, 0, 524307, 6, 0, 589836, 6, 0, 589837, 6, 0, 589838, 6, 0, 589839, 6, 0, 589840, 6, 0, 589841, 6, 0, 589842, 6, 0, 589843, 6, 0, 655372, 6, 0, 655373, 6, 0, 655374, 6, 0, 655375, 6, 0, 655376, 6, 0, 655377, 6, 0, 655378, 6, 0, 655379, 6, 0, 720908, 6, 0, 720909, 6, 0, 720910, 6, 0, 720911, 6, 0, 720912, 6, 0, 720913, 6, 0, 720914, 6, 0, 720915, 6, 0, 786444, 6, 0, 786445, 6, 0, 786446, 6, 0, 786447, 6, 0, 786448, 6, 0, 786449, 6, 0, 786450, 6, 0, 786451, 6, 0 )
+
+[node name="Back" type="Node" parent="."]
+script = ExtResource( 30 )
+
+[node name="effects" type="AudioStreamPlayer" parent="." groups=[
+"showPowerup",
+"score",
+]]
+volume_db = 10.0
+bus = "Effects"
+script = ExtResource( 31 )
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+bus = "Effects"
+script = ExtResource( 32 )
+
+[node name="FullScreens" type="CanvasLayer" parent="."]
+editor/display_folded = true
+layer = 2
+
+[node name="LoadingScreen" type="ColorRect" parent="FullScreens"]
+editor/display_folded = true
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.519529, 0.583344, 1, 1 )
+
+[node name="Label" type="Label" parent="FullScreens/LoadingScreen"]
+margin_left = 89.0
+margin_top = 250.0
+margin_right = 935.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 10 )
+text = "Connecting to Servers..."
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="UploadScreen" type="ColorRect" parent="FullScreens"]
+editor/display_folded = true
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.519529, 0.583344, 1, 1 )
+
+[node name="Label" type="Label" parent="FullScreens/UploadScreen"]
+margin_left = 161.0
+margin_top = 250.0
+margin_right = 863.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 10 )
+text = "Uploading Results..."
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="MenuLoading" type="ColorRect" parent="FullScreens"]
+editor/display_folded = true
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.519529, 0.583344, 1, 1 )
+
+[node name="Label" type="Label" parent="FullScreens/MenuLoading"]
+margin_left = 251.0
+margin_top = 250.0
+margin_right = 773.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 10 )
+text = "Loading Menu..."
+align = 1
+autowrap = true
+uppercase = true
+
+[connection signal="getHighscore" from="CanvasLayer/highscore" to="Request" method="_on_getHighscore"]
+[connection signal="highscoreUpdate" from="CanvasLayer/highscore" to="CanvasLayer/menu/menu_highscore" method="_on_Update"]
+[connection signal="setHighscore" from="CanvasLayer/highscore" to="Request" method="_on_setHighscore"]
+[connection signal="level" from="CanvasLayer/score" to="." method="_on_score_level"]
+[connection signal="scoreUpdate" from="CanvasLayer/score" to="CanvasLayer/highscore" method="_on_Update"]
+[connection signal="scoreUpdate" from="CanvasLayer/score" to="CanvasLayer/menu/menu_score" method="_on_Update"]
+[connection signal="dead" from="CanvasLayer/menu" to="CanvasLayer/highscore" method="_on_Player_dead"]
+[connection signal="pressed" from="CanvasLayer/menu/menu/retry" to="CanvasLayer/menu" method="_on_retry_pressed"]
+[connection signal="pressed" from="CanvasLayer/menu/menu/menu" to="CanvasLayer/menu" method="_on_menu_pressed"]
+[connection signal="pressed" from="CanvasLayer/pause" to="CanvasLayer/pause" method="_on_pause_pressed"]
+[connection signal="pressed" from="CanvasLayer/play" to="CanvasLayer/play" method="_on_play_pressed"]
+[connection signal="powerup" from="CanvasLayer/double_jump" to="Player" method="_on_powerup"]
+[connection signal="pressed" from="CanvasLayer/double_jump" to="CanvasLayer/double_jump" method="_on_pressed"]
+[connection signal="powerup" from="CanvasLayer/inverse_direction" to="Player" method="_on_powerup"]
+[connection signal="pressed" from="CanvasLayer/inverse_direction" to="CanvasLayer/inverse_direction" method="_on_pressed"]
+[connection signal="powerup" from="CanvasLayer/jump_increase" to="Player" method="_on_powerup"]
+[connection signal="pressed" from="CanvasLayer/jump_increase" to="CanvasLayer/jump_increase" method="_on_pressed"]
+[connection signal="powerup" from="CanvasLayer/speed_increase" to="Player" method="_on_powerup"]
+[connection signal="pressed" from="CanvasLayer/speed_increase" to="CanvasLayer/speed_increase" method="_on_pressed"]
+[connection signal="pressed" from="CanvasLayer/jumpButton" to="Player" method="_on_TouchScreenButton_pressed"]
+[connection signal="released" from="CanvasLayer/jumpButton" to="Player" method="_on_TouchScreenButton_released"]
+[connection signal="dead" from="Player" to="CanvasLayer/highscore" method="_on_Player_dead"]
+[connection signal="dead" from="Player" to="CanvasLayer/menu" method="_on_Player_dead"]
+[connection signal="dead" from="Player" to="CanvasLayer/play" method="_on_Player_dead"]
+[connection signal="jump" from="Player" to="jump" method="_on_jump"]
+[connection signal="powerup_over" from="Player" to="CanvasLayer/double_jump" method="_on_powerup_over"]
+[connection signal="powerup_over" from="Player" to="CanvasLayer/inverse_direction" method="_on_powerup_over"]
+[connection signal="powerup_over" from="Player" to="CanvasLayer/speed_increase" method="_on_powerup_over"]
+[connection signal="powerup_over" from="Player" to="CanvasLayer/jump_increase" method="_on_powerup_over"]
+[connection signal="back" from="Back" to="CanvasLayer/menu" method="_on_menu_pressed"]

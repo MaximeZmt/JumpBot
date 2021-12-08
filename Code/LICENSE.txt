@@ -1,0 +1,77 @@
+TERMS AND CONDITIONS
+
+Updated: 15/04/2019
+
+Please read these Terms and Conditions between you the user and Ketashi Inc. ("us", "we", or "our") carefully:
+
+
+TERMS OF USE
+
+You as the user will agree to the following terms before using the app’s online features:
+•	You will not attempt to use hack, exploit bugs or use any other technique to change your online score.
+•	You will not use obscene, vulgar, controversial, racist, homophobe, transphobe or anything that could be offensive or as an attack against a group/individual. What is deemed as inappropriate will be determined at our sole discretion.
+
+Failure to comply to these terms will result in the account being banned and all resulting info to be deleted.
+
+
+ADVERTISEMENT PRIVACY POLICY
+
+JumpBot software uses Google’s AdMob advertising service.
+Please follow this link: https://policies.google.com/privacy?hl=en
+
+
+RANKING SERVICE PRIVACY POLICY
+
+We as a company will collect the following information if you as the user decide to use our online ranking service:
+•	Username – This is the username you will be asked to input before logging/registering in our online ranking service. This information will be stored.
+•	IP address – This is the only private information we must collect for our you to access our online ranking service. This information will not be stored.
+•	Password – This is the password you will be asked to input before logging/registering in our online ranking service. The password will be hashed for security. This information will be stored.
+•	Score – This is the score you will be asked to input before logging/registering in our online ranking service. This information will be stored.
+All data transferred between the software and our servers is encrypted, however, we do not guarantee full protection of this data against malicious attempts to steal it.
+
+
+LICENSE GRANTS
+
+We as a company grant you the following:
+A revocable, non¬exclusive, non-transferable, limited license to download, install and use the Application solely for your personal, non-commercial purposes strictly in accordance with the terms of this Agreement.
+
+
+LICENSE RESTRICTIONS
+
+You agree not to, and you will not permit others to:
+License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the Application or make the Application available to any third party.
+
+
+TERMINATION
+
+We may terminate or suspend access to our Service and our software immediately, without prior notice or liability, for any reasons whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
+
+
+GOVERNING LAW
+
+Our software and service abide by the laws and the justice system of The Swiss Confederation.
+
+
+CHANGES TO THIS AGREEMENT
+
+We reserve the right, at our sole discretion, to modify, remove or replace these Terms at any time. If a revision is consequential, we will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a consequential change will be determined at our sole discretion.
+
+
+WARRANTEE
+
+THE SOFTWARE AND ANY SERVICE ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED. WE DO NOT WARRANT THAT THE PRODUCT WILL MEET YOUR REQUIREMENTS OR THAT ITS OPERATION WILL BE UNINTERRUPTED OR ERROR FREE. WE DISCLAIM ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. 
+Some jurisdictions do not allow the exclusion of implied warranties or limitations on how long an implied warranty may last, so the above limitations may not apply to You. This warranty gives You specific legal rights. You may have other rights that vary from state to state.
+
+
+CREDITS
+
+•	Game art, design and programming made by Loïc Zammit and Maxime Zammit.
+•	Music: Juhani Junkala: https://juhanijunkala.com/ - Terms and conditions do not apply to the music.
+•	Sound effects: Little Robot Sound Factory, www.littlerobotsoundfactory.com - Terms and conditions do not apply to the sound effects.
+•	Godot Game Engine and Binaries were used to make the game: godotengine.org/license - Terms and conditions do not apply to the binaries and any tools used to make the game.
+
+
+CONTACT INFORMATION
+
+If you have any questions about these Terms, please contact us using the following email address:
+ketashistudios@gmail.com

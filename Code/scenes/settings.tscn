@@ -1,0 +1,1079 @@
+[gd_scene load_steps=33 format=2]
+
+[ext_resource path="res://script/backArrow.gd" type="Script" id=1]
+[ext_resource path="res://script/settingsHTTPRequest.gd" type="Script" id=2]
+[ext_resource path="res://settings_style.tres" type="Theme" id=3]
+[ext_resource path="res://script/swipe.gd" type="Script" id=4]
+[ext_resource path="res://script/settings.gd" type="Script" id=5]
+[ext_resource path="res://font.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://settings_font.tres" type="DynamicFont" id=7]
+[ext_resource path="res://script/Online Ranking.gd" type="Script" id=8]
+[ext_resource path="res://script/Account.gd" type="Script" id=9]
+[ext_resource path="res://script/ChangeAccount.gd" type="Script" id=10]
+[ext_resource path="res://script/ChangePassword.gd" type="Script" id=11]
+[ext_resource path="res://script/Disconnect.gd" type="Script" id=12]
+[ext_resource path="res://script/Reset Online Score.gd" type="Script" id=13]
+[ext_resource path="res://sprites/back_arrow.png" type="Texture" id=14]
+[ext_resource path="res://sprites/back_arrow_inv.png" type="Texture" id=15]
+[ext_resource path="res://script/returnMenu.gd" type="Script" id=16]
+[ext_resource path="res://script/inputText.gd" type="Script" id=17]
+
+[sub_resource type="DynamicFont" id=1]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 32
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 6 )
+
+[sub_resource type="Theme" id=6]
+
+[sub_resource type="StyleBoxFlat" id=7]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=8]
+bg_color = Color( 0, 0, 0, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=9]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=10]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=11]
+bg_color = Color( 1, 1, 1, 0 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=12]
+bg_color = Color( 0.517647, 0.584314, 1, 1 )
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="DynamicFont" id=13]
+size = 32
+extra_spacing_top = 4
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=14]
+size = 48
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=15]
+size = 48
+font_data = ExtResource( 6 )
+
+[node name="Settings" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Request" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="Background" type="ColorRect" parent="."]
+margin_right = 1024.0
+margin_bottom = 600.0
+focus_mode = 2
+theme = ExtResource( 3 )
+color = Color( 0.517647, 0.584314, 1, 1 )
+
+[node name="Scroll" type="ScrollContainer" parent="Background"]
+margin_left = 211.0
+margin_top = 37.0
+margin_right = 823.0
+margin_bottom = 537.0
+focus_mode = 2
+theme = ExtResource( 3 )
+scroll_horizontal_enabled = false
+script = ExtResource( 4 )
+
+[node name="SettingsBox" type="VBoxContainer" parent="Background/Scroll"]
+margin_right = 600.0
+margin_bottom = 596.0
+rect_min_size = Vector2( 600, 200 )
+focus_mode = 2
+script = ExtResource( 5 )
+
+[node name="Title" type="Label" parent="Background/Scroll/SettingsBox"]
+margin_right = 600.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+focus_mode = 2
+custom_fonts/font = SubResource( 1 )
+text = "Settings"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Subtitle" type="Label" parent="Background/Scroll/SettingsBox"]
+margin_top = 64.0
+margin_right = 600.0
+margin_bottom = 88.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+text = "(Scroll down for more)"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Separator" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 92.0
+margin_right = 600.0
+margin_bottom = 96.0
+focus_mode = 2
+
+[node name="Inverse Controls" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 122.0
+margin_top = 100.0
+margin_right = 478.0
+margin_bottom = 136.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "INVERSE CONTROLS: "
+
+[node name="Separator2" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 140.0
+margin_right = 600.0
+margin_bottom = 144.0
+focus_mode = 2
+
+[node name="Mute Music" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 170.0
+margin_top = 148.0
+margin_right = 430.0
+margin_bottom = 184.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "MUTE MUSIC: "
+
+[node name="Separator3" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 188.0
+margin_right = 600.0
+margin_bottom = 192.0
+focus_mode = 2
+
+[node name="Mute Sound Effects" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 106.0
+margin_top = 196.0
+margin_right = 494.0
+margin_bottom = 232.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "MUTE SOUND EFFECTS: "
+
+[node name="Separator4" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 236.0
+margin_right = 600.0
+margin_bottom = 240.0
+focus_mode = 2
+
+[node name="Online Ranking" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 138.0
+margin_top = 244.0
+margin_right = 462.0
+margin_bottom = 280.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "ONLINE RANKING: "
+script = ExtResource( 8 )
+
+[node name="Online Ranking Result" type="Label" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 528.0
+margin_right = 600.0
+margin_bottom = 558.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Separator5" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 284.0
+margin_right = 600.0
+margin_bottom = 288.0
+focus_mode = 2
+
+[node name="Updates from Developers" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 66.0
+margin_top = 292.0
+margin_right = 534.0
+margin_bottom = 328.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "UPDATES FROM DEVELOPERS: "
+
+[node name="Separator6" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 332.0
+margin_right = 600.0
+margin_bottom = 336.0
+focus_mode = 2
+
+[node name="Log Files" type="CheckButton" parent="Background/Scroll/SettingsBox"]
+margin_left = 178.0
+margin_top = 340.0
+margin_right = 422.0
+margin_bottom = 376.0
+focus_mode = 0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+enabled_focus_mode = 0
+text = "LOG FILES: "
+
+[node name="Separator7" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 380.0
+margin_right = 600.0
+margin_bottom = 384.0
+focus_mode = 2
+
+[node name="VolumeControl" type="HBoxContainer" parent="Background/Scroll/SettingsBox"]
+margin_top = 388.0
+margin_right = 600.0
+margin_bottom = 428.0
+focus_mode = 2
+alignment = 1
+
+[node name="VolumeTitle" type="Label" parent="Background/Scroll/SettingsBox/VolumeControl"]
+margin_left = 88.0
+margin_right = 208.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 88, 40 )
+focus_mode = 2
+custom_fonts/font = ExtResource( 7 )
+text = "Volume:"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Volume" type="HSlider" parent="Background/Scroll/SettingsBox/VolumeControl"]
+margin_left = 212.0
+margin_right = 512.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 300, 40 )
+size_flags_horizontal = 4
+min_value = -10.0
+max_value = 10.0
+rounded = true
+scrollable = false
+ticks_on_borders = true
+
+[node name="Separator8" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 432.0
+margin_right = 600.0
+margin_bottom = 436.0
+focus_mode = 2
+
+[node name="Account" type="Label" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 440.0
+margin_right = 600.0
+margin_bottom = 464.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+text = "Account:"
+align = 1
+valign = 1
+uppercase = true
+script = ExtResource( 9 )
+
+[node name="Options" type="HBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 468.0
+margin_right = 620.0
+margin_bottom = 496.0
+alignment = 1
+
+[node name="ChangeAccount" type="Button" parent="Background/Scroll/SettingsBox/Options"]
+margin_right = 236.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CHANGE ACCOUNT"
+script = ExtResource( 10 )
+
+[node name="ChangePassword" type="Button" parent="Background/Scroll/SettingsBox/Options"]
+margin_left = 240.0
+margin_right = 492.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CHANGE PASSWORD"
+script = ExtResource( 11 )
+
+[node name="More" type="Button" parent="Background/Scroll/SettingsBox/Options"]
+margin_left = 496.0
+margin_right = 620.0
+margin_bottom = 28.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "MORE..."
+script = ExtResource( 11 )
+
+[node name="More" type="HBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 518.0
+margin_right = 600.0
+margin_bottom = 552.0
+alignment = 1
+
+[node name="Disconnect" type="Button" parent="Background/Scroll/SettingsBox/More"]
+margin_left = 229.0
+margin_right = 371.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "DISCONNECT"
+script = ExtResource( 12 )
+
+[node name="Delete Account" type="Button" parent="Background/Scroll/SettingsBox/More"]
+visible = false
+margin_left = 568.0
+margin_right = 760.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "DELETE ACCOUNT"
+script = ExtResource( 12 )
+
+[node name="Back" type="Button" parent="Background/Scroll/SettingsBox/More"]
+visible = false
+margin_left = 568.0
+margin_right = 760.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "BACK"
+script = ExtResource( 12 )
+
+[node name="ChangingAccount" type="HBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 566.0
+margin_right = 600.0
+margin_bottom = 600.0
+focus_mode = 2
+alignment = 1
+
+[node name="LogIn" type="Button" parent="Background/Scroll/SettingsBox/ChangingAccount"]
+margin_right = 72.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "LOGIN"
+
+[node name="SignUp" type="Button" parent="Background/Scroll/SettingsBox/ChangingAccount"]
+margin_left = 76.0
+margin_right = 170.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "SIGN UP"
+
+[node name="Cancel" type="Button" parent="Background/Scroll/SettingsBox/ChangingAccount"]
+margin_left = 174.0
+margin_right = 246.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CANCEL"
+
+[node name="loginForm" type="VBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 566.0
+margin_right = 600.0
+margin_bottom = 638.0
+focus_mode = 2
+
+[node name="Username" type="LineEdit" parent="Background/Scroll/SettingsBox/loginForm"]
+margin_left = 100.0
+margin_right = 500.0
+margin_bottom = 34.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+context_menu_enabled = false
+placeholder_text = "USERNAME"
+
+[node name="Password" type="LineEdit" parent="Background/Scroll/SettingsBox/loginForm"]
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 500.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "PASSWORD"
+
+[node name="Cancel" type="Button" parent="Background/Scroll/SettingsBox/loginForm"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CANCEL"
+
+[node name="Enter" type="Button" parent="Background/Scroll/SettingsBox/loginForm"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "ENTER"
+
+[node name="Result" type="Label" parent="Background/Scroll/SettingsBox/loginForm"]
+visible = false
+margin_top = -38.0
+margin_right = 600.0
+margin_bottom = -8.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="signUpForm" type="VBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 500.0
+margin_right = 620.0
+margin_bottom = 750.0
+focus_mode = 2
+
+[node name="Label" type="Label" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_right = 620.0
+margin_bottom = 90.0
+rect_min_size = Vector2( 0, 90 )
+focus_mode = 2
+custom_fonts/font = SubResource( 3 )
+text = "In order to use online ranking, please sign in bellow (4 to 24 characters, no spaces for password and username)."
+align = 1
+valign = 1
+autowrap = true
+uppercase = true
+
+[node name="Username" type="LineEdit" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_left = 110.0
+margin_top = 94.0
+margin_right = 510.0
+margin_bottom = 122.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+context_menu_enabled = false
+placeholder_text = "USERNAME"
+
+[node name="Password" type="LineEdit" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_left = 110.0
+margin_top = 126.0
+margin_right = 510.0
+margin_bottom = 154.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "PASSWORD"
+
+[node name="Confirm Password" type="LineEdit" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_left = 110.0
+margin_top = 158.0
+margin_right = 510.0
+margin_bottom = 186.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "CONFIRM PASSWORD"
+
+[node name="Cancel" type="Button" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_left = 256.0
+margin_top = 190.0
+margin_right = 364.0
+margin_bottom = 218.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CANCEL"
+
+[node name="Enter" type="Button" parent="Background/Scroll/SettingsBox/signUpForm"]
+margin_left = 264.0
+margin_top = 222.0
+margin_right = 356.0
+margin_bottom = 250.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "ENTER"
+
+[node name="Result" type="Label" parent="Background/Scroll/SettingsBox/signUpForm"]
+visible = false
+margin_top = -38.0
+margin_right = 600.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="changePassword" type="VBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 566.0
+margin_right = 600.0
+margin_bottom = 714.0
+focus_mode = 2
+
+[node name="Old Password" type="LineEdit" parent="Background/Scroll/SettingsBox/changePassword"]
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 500.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "OLD PASSWORD"
+
+[node name="New Password" type="LineEdit" parent="Background/Scroll/SettingsBox/changePassword"]
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 500.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "NEW PASSWORD"
+
+[node name="New Password Check" type="LineEdit" parent="Background/Scroll/SettingsBox/changePassword"]
+margin_left = 100.0
+margin_top = 38.0
+margin_right = 500.0
+margin_bottom = 72.0
+rect_min_size = Vector2( 400, 0 )
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+max_length = 24
+secret = true
+context_menu_enabled = false
+placeholder_text = "CONFIRM NEW PASSWORD"
+
+[node name="Cancel" type="Button" parent="Background/Scroll/SettingsBox/changePassword"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "CANCEL"
+
+[node name="Enter" type="Button" parent="Background/Scroll/SettingsBox/changePassword"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "ENTER"
+
+[node name="Result" type="Label" parent="Background/Scroll/SettingsBox/changePassword"]
+visible = false
+margin_top = -38.0
+margin_right = 600.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="deleteAccount" type="VBoxContainer" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 566.0
+margin_right = 600.0
+margin_bottom = 714.0
+focus_mode = 2
+
+[node name="Message" type="Label" parent="Background/Scroll/SettingsBox/deleteAccount"]
+margin_top = -468.0
+margin_right = 600.0
+margin_bottom = -438.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+text = "Are you sure?"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Yes" type="Button" parent="Background/Scroll/SettingsBox/deleteAccount"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "YES"
+
+[node name="No" type="Button" parent="Background/Scroll/SettingsBox/deleteAccount"]
+margin_left = 174.0
+margin_right = 266.0
+margin_bottom = 34.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "NO"
+
+[node name="Result" type="Label" parent="Background/Scroll/SettingsBox/deleteAccount"]
+visible = false
+margin_top = -38.0
+margin_right = 600.0
+margin_bottom = -8.0
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Separator9" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 440.0
+margin_right = 600.0
+margin_bottom = 444.0
+focus_mode = 2
+
+[node name="Reset Game" type="Button" parent="Background/Scroll/SettingsBox"]
+margin_left = 214.0
+margin_top = 448.0
+margin_right = 386.0
+margin_bottom = 476.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "RESET GAME"
+
+[node name="Separator10" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 480.0
+margin_right = 600.0
+margin_bottom = 484.0
+focus_mode = 2
+
+[node name="Reset Online Score" type="Button" parent="Background/Scroll/SettingsBox"]
+margin_left = 150.0
+margin_top = 488.0
+margin_right = 450.0
+margin_bottom = 516.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "RESET ONLINE SCORE"
+script = ExtResource( 13 )
+
+[node name="Reset Online Score Result" type="Label" parent="Background/Scroll/SettingsBox"]
+visible = false
+margin_top = 528.0
+margin_right = 600.0
+margin_bottom = 558.0
+focus_mode = 2
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 1, 0, 0, 1 )
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Separator11" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 520.0
+margin_right = 600.0
+margin_bottom = 524.0
+focus_mode = 2
+
+[node name="About" type="Button" parent="Background/Scroll/SettingsBox"]
+margin_left = 254.0
+margin_top = 528.0
+margin_right = 346.0
+margin_bottom = 556.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "ABOUT"
+
+[node name="Separator12" type="HSeparator" parent="Background/Scroll/SettingsBox"]
+margin_top = 560.0
+margin_right = 600.0
+margin_bottom = 564.0
+focus_mode = 2
+
+[node name="Terms and Conditions" type="Button" parent="Background/Scroll/SettingsBox"]
+margin_left = 134.0
+margin_top = 568.0
+margin_right = 466.0
+margin_bottom = 596.0
+size_flags_horizontal = 4
+custom_fonts/font = ExtResource( 7 )
+text = "TERMS AND CONDITIONS"
+
+[node name="Back" type="TextureButton" parent="."]
+margin_left = 55.0
+margin_top = 55.0
+margin_right = 66.0
+margin_bottom = 64.0
+rect_scale = Vector2( 10, 10 )
+texture_normal = ExtResource( 14 )
+texture_pressed = ExtResource( 15 )
+script = ExtResource( 16 )
+
+[node name="Terms and Conditions" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 112.0
+margin_top = 100.0
+margin_right = 912.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 800, 400 )
+focus_mode = 2
+color = Color( 0, 0.0980392, 0.745098, 1 )
+
+[node name="Scroll" type="ScrollContainer" parent="Terms and Conditions"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 775.0
+margin_bottom = 345.0
+focus_mode = 2
+theme = ExtResource( 3 )
+scroll_horizontal_enabled = false
+
+[node name="SettingsBox" type="VBoxContainer" parent="Terms and Conditions/Scroll"]
+margin_right = 750.0
+margin_bottom = 3489.0
+rect_min_size = Vector2( 750, 200 )
+focus_mode = 2
+
+[node name="Title" type="Label" parent="Terms and Conditions/Scroll/SettingsBox"]
+margin_right = 750.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+focus_mode = 2
+custom_fonts/font = SubResource( 4 )
+text = "TERMS AND CONDITIONS"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Text" type="Label" parent="Terms and Conditions/Scroll/SettingsBox"]
+margin_top = 64.0
+margin_right = 750.0
+margin_bottom = 3242.0
+custom_fonts/font = SubResource( 5 )
+text = "Updated: 11/05/2019
+
+Please read these Terms and Conditions between you the user and Ketashi Corporation (\"us\", \"we\", or \"our\") carefully:
+
+
+TERMS OF USE
+
+You as the user will agree to the following terms before using the app’s online features:
+•	You will not attempt to use hack, exploit bugs or use any other technique to change your online score.
+•	You will not use obscene, vulgar, controversial, racist, homophobe, transphobe or anything that could be offensive or as an attack against a group/individual. What is deemed as inappropriate will be determined at our sole discretion.
+
+Failure to comply to these terms will result in the account being banned and all resulting info to be deleted.
+
+
+ADVERTISEMENT PRIVACY POLICY
+
+JumpBot software uses Google’s AdMob advertising service.
+Please follow this link: https://policies.google.com/privacy?hl=en
+If you accept the terms, you accept the use of advertisements to sponsor the game.
+
+RANKING SERVICE PRIVACY POLICY
+
+We as a company will collect the following information if you as the user decide to use our online ranking service:
+•	Username – This is the username you will be asked to input before logging/registering in our online ranking service. This information will be stored
+
+•	IP address – This is the only private information we must collect for our you to access our online ranking service. This information will not be stored.
+
+•	Password – This is the password you will be asked to input before logging/registering in our online ranking service. The password will be hashed for security. This information will be stored.
+
+•	Score – This is the score you will be asked to input before logging/registering in our online ranking service. This information will be stored.
+
+Account deletion removes any collected information on our servers.
+
+If you want to temporarily stop the collect of information, you can either turn online mode off on the menu or disconnect from your account.
+
+Turning off online ranking will allow you to still save your online score but other users won't be able to see it.
+
+All data transferred between the software and our servers is encrypted, however, we do not guarantee full protection of this data against malicious attempts to steal it.
+
+
+LICENSE GRANTS
+
+We as a company grant you the following:
+A revocable, non¬exclusive, non-transferable, limited license to download, install and use the Application solely for your personal, non-commercial purposes strictly in accordance with the terms of this Agreement.
+
+
+LICENSE RESTRICTIONS
+
+You agree not to, and you will not permit others to:
+License, sell, rent, lease, assign, distribute, transmit, host, outsource, disclose or otherwise commercially exploit the Application or make the Application available to any third party.
+
+
+TERMINATION
+
+We may terminate or suspend access to our Service and our software immediately, without prior notice or liability, for any reasons whatsoever, including without limitation if you breach the Terms. All provisions of the Terms which by their nature should survive termination shall survive termination, including, without limitation, ownership provisions, warranty disclaimers, indemnity and limitations of liability.
+
+
+GOVERNING LAW
+
+Our software and service abide by the laws and the justice system of The Swiss Confederation.
+
+
+CHANGES TO THIS AGREEMENT
+
+We reserve the right, at our sole discretion, to modify, remove or replace these Terms at any time. If a revision is consequential, we will try to provide at least 30 days' notice prior to any new terms taking effect. What constitutes a consequential change will be determined at our sole discretion.
+
+
+WARRANTEE
+
+THE SOFTWARE AND ANY SERVICE ARE PROVIDED “AS IS” WITHOUT WARRANTY OF ANY KIND, EITHER EXPRESSED OR IMPLIED. WE DO NOT WARRANT THAT THE PRODUCT WILL MEET YOUR REQUIREMENTS OR THAT ITS OPERATION WILL BE UNINTERRUPTED OR ERROR FREE. WE DISCLAIM ANY WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE, AND NON-INFRINGEMENT. 
+Some jurisdictions do not allow the exclusion of implied warranties or limitations on how long an implied warranty may last, so the above limitations may not apply to You. This warranty gives You specific legal rights. You may have other rights that vary from state to state.
+
+
+CREDITS
+
+•	Game art, design and programming made by Loïc Zammit and Maxime Zammit.
+
+•	Font: codeman38: http://www.zone38.net/ - Terms and conditions do not apply to the music.
+
+•	Music: Juhani Junkala: https://juhanijunkala.com/ - Terms and conditions do not apply to the music.
+
+•	Sound effects: Little Robot Sound Factory, www.littlerobotsoundfactory.com - Terms and conditions do not apply to the sound effects.
+
+•	Godot Game Engine and Binaries were used to make the game: godotengine.org/license - Terms and conditions do not apply to the binaries and any tools used to make the game.
+
+
+CONTACT INFORMATION
+
+If you have any questions about these Terms, please contact us using the following email address:
+contact@ketashi.com
+"
+valign = 1
+autowrap = true
+
+[node name="Ok" type="Button" parent="Terms and Conditions"]
+margin_left = 347.0
+margin_top = 358.0
+margin_right = 439.0
+margin_bottom = 392.0
+size_flags_horizontal = 4
+theme = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "OK"
+
+[node name="About" type="ColorRect" parent="."]
+pause_mode = 2
+visible = false
+margin_left = 112.0
+margin_top = 100.0
+margin_right = 912.0
+margin_bottom = 500.0
+rect_min_size = Vector2( 800, 400 )
+focus_mode = 2
+color = Color( 0, 0.0980392, 0.745098, 1 )
+
+[node name="Scroll" type="ScrollContainer" parent="About"]
+margin_left = 25.0
+margin_top = 25.0
+margin_right = 775.0
+margin_bottom = 345.0
+focus_mode = 2
+theme = ExtResource( 3 )
+scroll_horizontal_enabled = false
+
+[node name="SettingsBox" type="VBoxContainer" parent="About/Scroll"]
+margin_right = 750.0
+margin_bottom = 544.0
+rect_min_size = Vector2( 750, 200 )
+focus_mode = 2
+
+[node name="Title" type="Label" parent="About/Scroll/SettingsBox"]
+margin_right = 750.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 0, 60 )
+focus_mode = 2
+custom_fonts/font = SubResource( 4 )
+text = "ABOUT"
+align = 1
+valign = 1
+uppercase = true
+
+[node name="Text" type="Label" parent="About/Scroll/SettingsBox"]
+margin_top = 64.0
+margin_right = 750.0
+margin_bottom = 544.0
+custom_fonts/font = SubResource( 5 )
+text = "Hi!
+
+Version: 1.0.9
+
+Font: codeman38: http://www.zone38.net/ - Terms and conditions do not apply to the music.
+
+Music: Juhani Junkala: https://juhanijunkala.com/ - Terms and conditions do not apply to the music.
+
+Sound effects: Little Robot Sound Factory, www.littlerobotsoundfactory.com - Terms and conditions do not apply to the sound effects.
+
+Godot Game Engine and Binaries were used to make the game: godotengine.org/license - Terms and conditions do not apply to the binaries and any tools used to make the game.
+
+Made with love by Loïc Zammit and Maxime Zammit
+
+We hope you enjoy our game! :3"
+valign = 1
+autowrap = true
+
+[node name="Ok" type="Button" parent="About"]
+margin_left = 347.0
+margin_top = 358.0
+margin_right = 439.0
+margin_bottom = 392.0
+size_flags_horizontal = 4
+theme = SubResource( 6 )
+custom_styles/hover = SubResource( 7 )
+custom_styles/pressed = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/disabled = SubResource( 10 )
+custom_styles/normal = SubResource( 11 )
+custom_fonts/font = ExtResource( 7 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+text = "OK"
+
+[node name="Input" type="LineEdit" parent="."]
+pause_mode = 2
+visible = false
+margin_right = 400.0
+margin_bottom = 60.0
+rect_min_size = Vector2( 400, 60 )
+focus_mode = 1
+size_flags_horizontal = 4
+theme = ExtResource( 3 )
+custom_styles/normal = SubResource( 12 )
+custom_fonts/font = SubResource( 13 )
+custom_colors/selection_color = Color( 1, 1, 1, 1 )
+custom_colors/cursor_color = Color( 1, 1, 1, 1 )
+custom_colors/font_color = Color( 1, 1, 1, 1 )
+max_length = 24
+script = ExtResource( 17 )
+
+[node name="LoadingScreen" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.519529, 0.583344, 1, 1 )
+
+[node name="Label" type="Label" parent="LoadingScreen"]
+margin_left = 89.0
+margin_top = 250.0
+margin_right = 935.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 14 )
+text = "Connecting to Servers..."
+align = 1
+autowrap = true
+uppercase = true
+
+[node name="MenuLoading" type="ColorRect" parent="."]
+visible = false
+margin_right = 1024.0
+margin_bottom = 600.0
+color = Color( 0.519529, 0.583344, 1, 1 )
+
+[node name="Label" type="Label" parent="MenuLoading"]
+margin_left = 251.0
+margin_top = 250.0
+margin_right = 773.0
+margin_bottom = 350.0
+custom_fonts/font = SubResource( 15 )
+text = "Loading Menu..."
+align = 1
+autowrap = true
+uppercase = true
+[connection signal="back" from="." to="Back" method="_on_Back_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Online Ranking" to="Request" method="_on_Online_Ranking_pressed"]
+[connection signal="changePassword" from="Background/Scroll/SettingsBox/Account" to="Request" method="_on_Account_changePassword"]
+[connection signal="deleteAccount" from="Background/Scroll/SettingsBox/Account" to="Request" method="_on_Account_deleteAccount"]
+[connection signal="login" from="Background/Scroll/SettingsBox/Account" to="Request" method="_on_Account_login"]
+[connection signal="signUp" from="Background/Scroll/SettingsBox/Account" to="Request" method="_on_Account_signUp"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Options/ChangeAccount" to="Background/Scroll/SettingsBox/Account" method="_on_Change_Account_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Options/ChangePassword" to="Background/Scroll/SettingsBox/Account" method="_on_ChangePassword_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Options/More" to="Background/Scroll/SettingsBox/Account" method="_on_More_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/More/Disconnect" to="Background/Scroll/SettingsBox/Account" method="_on_Disconnect_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/More/Delete Account" to="Background/Scroll/SettingsBox/Account" method="_on_Delete_Account_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/More/Back" to="Background/Scroll/SettingsBox/Account" method="_on_Back_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/ChangingAccount/LogIn" to="Background/Scroll/SettingsBox/Account" method="_on_LogIn_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/ChangingAccount/SignUp" to="Background/Scroll/SettingsBox/Account" method="_on_SignUp_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/ChangingAccount/Cancel" to="Background/Scroll/SettingsBox/Account" method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/loginForm/Cancel" to="Background/Scroll/SettingsBox/Account" method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/loginForm/Enter" to="Background/Scroll/SettingsBox/Account" method="_on_Enter_login_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/signUpForm/Cancel" to="Background/Scroll/SettingsBox/Account" method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/signUpForm/Enter" to="Background/Scroll/SettingsBox/Account" method="_on_Enter_signUp_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/changePassword/Cancel" to="Background/Scroll/SettingsBox/Account" method="_on_Cancel_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/changePassword/Enter" to="Background/Scroll/SettingsBox/Account" method="_on_Enter_changePassword_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/deleteAccount/Yes" to="Background/Scroll/SettingsBox/Account" method="_on_Yes_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/deleteAccount/No" to="Background/Scroll/SettingsBox/Account" method="_on_No_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Reset Game" to="Background/Scroll/SettingsBox" method="_on_Reset_Game_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Reset Online Score" to="Request" method="_on_Reset_Online_Score"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/About" to="Background/Scroll/SettingsBox" method="_on_About_pressed"]
+[connection signal="pressed" from="Background/Scroll/SettingsBox/Terms and Conditions" to="Background/Scroll/SettingsBox" method="_on_Terms_and_Conditions_pressed"]
+[connection signal="pressed" from="Back" to="Back" method="_on_Back_pressed"]
+[connection signal="pressed" from="Back" to="Background/Scroll/SettingsBox" method="_on_Back_pressed"]
+[connection signal="pressed" from="Terms and Conditions/Ok" to="Background/Scroll/SettingsBox" method="_on_Ok_pressed"]
+[connection signal="pressed" from="About/Ok" to="Background/Scroll/SettingsBox" method="_on_Ok_pressed"]
+[connection signal="text_changed" from="Input" to="Input" method="_on_Input_text_changed"]

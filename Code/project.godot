@@ -1,0 +1,65 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=4
+
+_global_script_classes=[  ]
+_global_script_class_icons={
+
+}
+
+[android]
+
+modules="org/godotengine/godot/GodotAdMob"
+
+[application]
+
+config/name="jumpbot"
+run/main_scene="res://scenes/boot.tscn"
+boot_splash/image="res://sprites/backscreen.png"
+boot_splash/fullsize=false
+boot_splash/bg_color=Color( 0, 0, 0, 1 )
+config/icon="res://sprites/icon.png"
+
+[autoload]
+
+Autoplay="res://scenes/autoplay.tscn"
+
+[debug]
+
+gdscript/warnings/unused_argument=false
+gdscript/warnings/return_value_discarded=false
+
+[display]
+
+window/stretch/mode="viewport"
+window/stretch/aspect="keep"
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [ Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"button_mask":0,"position":Vector2( 0, 0 ),"global_position":Vector2( 0, 0 ),"factor":1.0,"button_index":1,"pressed":false,"doubleclick":false,"script":null)
+ ]
+}
+
+[input_devices]
+
+pointing/emulate_touch_from_mouse=true
+
+[physics]
+
+2d/thread_model=2
+common/enable_object_picking=false
+
+[rendering]
+
+quality/driver/driver_name="GLES2"
+threads/thread_model=2
+vram_compression/import_etc=true
+environment/default_environment="res://default_env.tres"

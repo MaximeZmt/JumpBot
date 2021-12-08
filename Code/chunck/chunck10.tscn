@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://items/inverse_direction.tscn" type="PackedScene" id=2]
+[ext_resource path="res://items/gold_coin.tscn" type="PackedScene" id=3]
+
+[node name="TileMap" type="TileMap"]
+scale = Vector2( 10, 10 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -131064, 10, 0, -65535, 10, 0, -65526, 10, 0, -65518, 10, 0, 9, 10, 0 )
+
+[node name="inverse_direction" parent="." instance=ExtResource( 2 )]
+position = Vector2( 148, -8 )
+scale = Vector2( 1, 1 )
+
+[node name="gold_coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 76, 0 )
+

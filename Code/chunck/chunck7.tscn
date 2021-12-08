@@ -1,0 +1,23 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Tileset.tres" type="TileSet" id=1]
+[ext_resource path="res://script/chunck.gd" type="Script" id=2]
+[ext_resource path="res://items/bronze_coin.tscn" type="PackedScene" id=3]
+
+[node name="TileMap" type="TileMap"]
+scale = Vector2( 10, 10 )
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 8, 8 )
+format = 1
+tile_data = PoolIntArray( -458737, 9, 0, -393201, 9, 0, -327670, 10, 0, -327669, 10, 0, -327665, 9, 0, -262138, 10, 0, -262137, 10, 0, -196606, 10, 0, -196605, 10, 0, -131071, 10, 0, -65521, 10, 0, -65520, 10, 0, -65519, 10, 0 )
+script = ExtResource( 2 )
+
+[node name="bronze_coin" parent="." instance=ExtResource( 3 )]
+position = Vector2( 67.0023, -35.3677 )
+
+[node name="bronze_coin2" parent="." instance=ExtResource( 3 )]
+position = Vector2( 38.1326, -25.0042 )
+
+[node name="bronze_coin3" parent="." instance=ExtResource( 3 )]
+position = Vector2( 123.261, -27.9652 )
+
