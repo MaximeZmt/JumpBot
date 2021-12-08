@@ -22,4 +22,4 @@ Some link to already built version:
 - [Linux](https://github.com/MaximeZmt/JumpBot/blob/main/Build/LinuxBuild.7z)
 - [Android](https://github.com/MaximeZmt/JumpBot/blob/main/Build/JumpBot.apk) (This is an old release build that is containing admob. But the add should be disabled)
 
-Originally there was an online score system that has been disabled on the new built and in the code but that still present in the old android build
+Originally there was an online score system that has been disabled in the newly built version (but that is still present in the old android build) because the server are down.
