@@ -20,6 +20,6 @@ Here there are all the files from the godot project, so that you can modify what
 Some link to already built version:
 - [Windows](https://github.com/MaximeZmt/JumpBot/blob/main/Build/MyAppWindows.exe)
 - [Linux](https://github.com/MaximeZmt/JumpBot/blob/main/Build/LinuxBuild.7z)
-- [Android](https://github.com/MaximeZmt/JumpBot/blob/main/Build/JumpBot.apk) (This is an old release build that is containing admob. But the add should be disabled)
+- [Android](https://github.com/MaximeZmt/JumpBot/blob/main/Build/JumpBot.apk) (This is an old release build that is containing admob. But the ad should be disabled)
 
 Originally there was an online score system that has been disabled in the newly built version (but that is still present in the old android build) because the server are down.
